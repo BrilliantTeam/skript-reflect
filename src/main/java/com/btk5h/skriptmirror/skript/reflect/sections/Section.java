@@ -32,6 +32,8 @@ public class Section {
     SkriptReflection.putLocals(SkriptReflection.copyLocals(variablesMap), sectionEvent);
 
     for (int i = 0; i < arguments.length && i < argumentVariables.size(); i++) {
+      Object[] var = arguments[i];
+      if (var.length == 0) continue;
       argumentVariables.get(i).change(sectionEvent, arguments[i], Changer.ChangeMode.SET);
     }
 
