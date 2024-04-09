@@ -34,7 +34,7 @@ public class Section {
     for (int i = 0; i < arguments.length && i < argumentVariables.size(); i++) {
       Object[] var = arguments[i];
       if (var.length == 0) continue;
-      argumentVariables.get(i).change(sectionEvent, arguments[i], Changer.ChangeMode.SET);
+      argumentVariables.get(i).change(sectionEvent, var, Changer.ChangeMode.SET);
     }
 
     TriggerItem.walk(trigger, sectionEvent);
