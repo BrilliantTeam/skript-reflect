@@ -32,8 +32,13 @@ public class Section {
     SkriptReflection.putLocals(SkriptReflection.copyLocals(variablesMap), sectionEvent);
 
     for (int i = 0; i < arguments.length && i < argumentVariables.size(); i++) {
-      argumentVariables.get(i).change(sectionEvent, arguments[i], Changer.ChangeMode.SET);
-    }
+			Object[] currentArg = arguments[i];
+      if (currentArg.length == 0) {
+        argumentVariables.get(i).change(sectionEvent, null, Changer.ChangeMode.DELETE);
+      } else {
+        argumentVariables.get(i).change(sectionEvent, currentArg, Changer.ChangeMode.SET);
+      }
+		}
 
     TriggerItem.walk(trigger, sectionEvent);
     SkriptReflection.removeLocals(sectionEvent);
