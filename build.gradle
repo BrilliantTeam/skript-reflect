@@ -28,8 +28,8 @@ processResources {
 }
 
 compileJava   {
-  sourceCompatibility = '1.11'
-  targetCompatibility = '1.11'
+  sourceCompatibility = '11'
+  targetCompatibility = '11'
   options.encoding = 'UTF-8'
 }
 
