@@ -132,6 +132,9 @@ public class EvtByReflection extends SkriptEvent {
     boolean hasUncancellable = false;
     boolean hasCancellable = false;
 
+    if (classes == null)
+      return new Class[]{BukkitEvent.class};
+
     for (Class<? extends Event> eventClass : classes) {
       if (Cancellable.class.isAssignableFrom(eventClass)) {
         hasCancellable = true;
