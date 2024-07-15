@@ -45,7 +45,7 @@ public class EvtByReflection extends SkriptEvent {
     @Override
     public void execute(Listener listener, Event event) throws EventException {
       if (eventClass.isInstance(event)) {
-        if (event instanceof Cancellable && !listeningBehavior.matches(((Cancellable) event).isCancelled()))
+        if (event instanceof Cancellable && listeningBehavior != null && !listeningBehavior.matches(((Cancellable) event).isCancelled()))
           return;
 
         Event scriptEvent;
