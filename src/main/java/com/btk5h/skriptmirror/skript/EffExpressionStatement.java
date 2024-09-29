@@ -44,7 +44,7 @@ public class EffExpressionStatement extends Effect {
         SkriptReflection.putLocals(localVariables, e);
         execute(e);
       }, threadPool)
-        .thenAccept(res -> Bukkit.getScheduler().runTask(SkriptMirror.getInstance(), () -> {
+        .thenAccept(res -> Bukkit.getGlobalRegionScheduler().run(SkriptMirror.getInstance(), (ignored) -> {
           if (getNext() != null)
             TriggerItem.walk(getNext(), e);
 

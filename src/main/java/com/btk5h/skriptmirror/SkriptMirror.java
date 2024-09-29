@@ -79,6 +79,7 @@ public class SkriptMirror extends JavaPlugin {
     // Disable *all* and/or warnings
     SkriptReflection.disableAndOrWarnings();
 
+    /*
     Metrics metrics = new Metrics(this, 10157);
 
     metrics.addCustomChart(new Metrics.DrilldownPie("skript_version", () -> {
@@ -112,7 +113,7 @@ public class SkriptMirror extends JavaPlugin {
       () -> "" + ExprProxy.proxiesUsed));
     metrics.addCustomChart(new Metrics.SimplePie("sections_used",
       () -> "" + SecSection.sectionsUsed));
-
+     */
   }
 
   public static SkriptAddon getAddonInstance() {

@@ -143,9 +143,9 @@ public class EffRunSection extends Effect {
 
   private void runTask(Runnable task, boolean async) {
     if (async)
-      Bukkit.getScheduler().runTaskAsynchronously(SkriptMirror.getInstance(), task);
+      Bukkit.getAsyncScheduler().runNow(SkriptMirror.getInstance(), (ignored) -> task.run());
     else
-      Bukkit.getScheduler().runTask(SkriptMirror.getInstance(), task);
+      Bukkit.getGlobalRegionScheduler().run(SkriptMirror.getInstance(), (ignored) -> task.run());
   }
 
 }
